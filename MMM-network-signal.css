@@ -1,0 +1,119 @@
+.MMM-network-signal-wifi {
+    box-sizing: border-box;
+    background-color: transparent;
+    border: 0.5em solid transparent;
+    border-top-color: #aaa;
+    border-radius: 0.5em;
+    height: 1em;
+    left: 50%;
+    position: relative;
+    top: 50%;
+    transition: border-top-color 0.3s linear;
+    width: 1em;
+    -webkit-transform: translate(-25%);
+    transform: translate(-25%);
+}
+.MMM-network-signal-wifi:before,
+.MMM-network-signal-wifi:after {
+    content: "";
+    box-sizing: border-box;
+    background-color: transparent;
+    border: 0.365em solid transparent;
+    border-top-color: #aaa;
+    position: absolute;
+    transition: border-top-color 0.3s linear;
+}
+.MMM-network-signal-wifi:before {
+    border-radius: 1em;
+    height: 2em;
+    left: -1em;
+    top: -1em;
+    width: 2em;
+}
+.MMM-network-signal-wifi:after {
+    border-radius: 3em;
+    height: 3em;
+    left: -1.5em;
+    top: -1.5em;
+    width: 3em;
+}
+.MMM-network-signal-wifi.loading {
+    -webkit-animation: MMM-network-signal-blink-1 1.5s linear infinite;
+    animation: MMM-network-signal-blink-1 1.5s linear infinite;
+}
+.MMM-network-signal-wifi.loading:before {
+    -webkit-animation: MMM-network-signal-blink-2 1.5s linear infinite;
+    animation: MMM-network-signal-blink-2 1.5s linear infinite;
+}
+.MMM-network-signal-wifi.loading:after {
+    -webkit-animation: MMM-network-signal-blink-3 1.5s linear infinite;
+    animation: MMM-network-signal-blink-3 1.5s linear infinite;
+}
+.MMM-network-signal-wifi.none:not(.loading) {
+    border-top-color: rgba(68, 68, 68, 0.4);
+}
+.MMM-network-signal-wifi.none:not(.loading):before,
+.MMM-network-signal-wifi.none:not(.loading):after {
+    border-top-color: rgba(68, 68, 68, 0.4);
+}
+.MMM-network-signal-wifi.weak:not(.loading):before,
+.MMM-network-signal-wifi.weak:not(.loading):after {
+    border-top-color: rgba(68, 68, 68, 0.4);
+}
+.MMM-network-signal-wifi.medium:not(.loading):after {
+    border-top-color: rgba(68, 68, 68, 0.4);
+}
+@-webkit-keyframes MMM-network-signal-blink-1 {
+    0% {
+        border-top-color: rgba(68, 68, 68, 0.4);
+    }
+    50%,
+    100% {
+        border-top-color: #aaa;
+    }
+}
+@keyframes MMM-network-signal-blink-1 {
+    0% {
+        border-top-color: rgba(68, 68, 68, 0.4);
+    }
+    50%,
+    100% {
+        border-top-color: #aaa;
+    }
+}
+@-webkit-keyframes MMM-network-signal-blink-2 {
+    0%,
+    100% {
+        border-top-color: #aaa;
+    }
+    50% {
+        border-top-color: rgba(68, 68, 68, 0.4);
+    }
+}
+@keyframes MMM-network-signal-blink-2 {
+    0%,
+    100% {
+        border-top-color: #aaa;
+    }
+    50% {
+        border-top-color: rgba(68, 68, 68, 0.4);
+    }
+}
+@-webkit-keyframes MMM-network-signal-blink-3 {
+    0%,
+    50% {
+        border-top-color: #aaa;
+    }
+    100% {
+        border-top-color: rgba(68, 68, 68, 0.4);
+    }
+}
+@keyframes MMM-network-signal-blink-3 {
+    0%,
+    50% {
+        border-top-color: #aaa;
+    }
+    100% {
+        border-top-color: rgba(68, 68, 68, 0.4);
+    }
+}
