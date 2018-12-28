@@ -31,4 +31,4 @@ Display a solid wifi logo as network signal for MagicMirror<sup>2</sup>
 | `animationSpeed`   | `250`                                    | Icon change animation time in ms        |
 | `initialLoadDelay` | `3000`                                   | Delay in ms for first ping              |
 | `server`           | `8.8.8.8`                                | Pingable server IP address              |
-| `tresholds`        | `{ strong: 50, medium: 150, weak: 500 }` | Tresholds for icons (ping answer in ms) |
+| `thresholds`       | `{ strong: 50, medium: 150, weak: 500 }` | Tresholds for icons (ping answer in ms) |
