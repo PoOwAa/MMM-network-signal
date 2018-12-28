@@ -1,6 +1,8 @@
 # MMM-network-signal
 
-Display a solid wifi logo as network signal
+Display a solid wifi logo as network signal for MagicMirror<sup>2</sup>
+
+![Signal icons: none, weak, normal, strong, loading](https://raw.githubusercontent.com/PoOwAa/MMM-network-signal/master/icons.gif)
 
 ## Dependencies
 
