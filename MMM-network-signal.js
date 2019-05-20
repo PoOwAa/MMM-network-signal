@@ -14,12 +14,19 @@ Module.register("MMM-network-signal", {
         animationSpeed: 1000 * 0.25, // fade effect
         initialLoadDelay: 1000 * 3, // first check delay
         server: "8.8.8.8", // Server to check network connection. Default 8.8.8.8 is a Google DNS server
+		showMessage: true,
         thresholds: {
             strong: 50,
             medium: 150,
             weak: 500,
         },
     },
+    getTranslations: function() {
+		return {
+			en: "translations/en.json",
+      		es: "translations/es.json",
+		};
+	},
 
     // Custom CSS for wifi logo
     getStyles: function() {
@@ -44,26 +51,47 @@ Module.register("MMM-network-signal", {
         wrapper.className = "small";
 
         const signalClasses = this.getSignalClasses();
-
         const wifiSign = document.createElement("div");
+        if (this.config.showMessage)
+        {
+            wrapper.style = "display: flex; flex-direction: row"
+            var connStatus = document.createElement("p");
+            connStatus.style = "text-align: left";
+        }
 
         // Changing icon
         switch (true) {
             // Fast ping, strong signal
             case this.ping < this.config.thresholds.strong:
                 wifiSign.className = signalClasses.strong;
+                if (this.config.showMessage)
+                {
+                    connStatus.innerHTML = this.translate("excellent")
+                }
                 break;
             // Medium ping, medium signal
             case this.ping < this.config.thresholds.medium:
                 wifiSign.className = signalClasses.medium;
+                if (this.config.showMessage)
+                {
+                    connStatus.innerHTML = this.translate("good")
+                }
                 break;
             // Slow ping, weak signal
             case this.ping < this.config.thresholds.weak:
                 wifiSign.className = signalClasses.weak;
+                if (this.config.showMessage)
+                {
+                    connStatus.innerHTML = this.translate("normal")
+                }
                 break;
             // Ultraslow ping, better if "no signal"
             case this.ping > this.config.thresholds.weak:
                 wifiSign.className = signalClasses.none;
+                if (this.config.showMessage)
+                {
+                    connStatus.innerHTML = this.translate("bad")
+                }
                 break;
             // No actual ping, maybe just searching for signal
             default:
@@ -72,6 +100,10 @@ Module.register("MMM-network-signal", {
         }
 
         wrapper.appendChild(wifiSign);
+        if (this.config.showMessage)
+        {
+            wrapper.appendChild(connStatus);
+        }
         return wrapper;
     },
 
