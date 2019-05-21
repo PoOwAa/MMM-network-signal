@@ -34,3 +34,4 @@ Display a solid wifi logo as network signal for MagicMirror<sup>2</sup>
 | `initialLoadDelay` | `3000`                                   | Delay in ms for first ping              |
 | `server`           | `8.8.8.8`                                | Pingable server IP address              |
 | `thresholds`       | `{ strong: 50, medium: 150, weak: 500 }` | Tresholds for icons (ping answer in ms) |
+| `showMessage`      | `true`                                   | Shows status messages depending on how good or bad is the connection |
