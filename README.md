@@ -15,14 +15,15 @@ Display a solid wifi logo as network signal for MagicMirror<sup>2</sup>
 2. Install dependencies `npm i`
 3. Configure your `~/MagicMirror/config/config.js`:
 
-    ```
-    {
-        {
-            module: "MMM-network-signal",
-            position: "bottom_right",
-        },
-    }
-    ```
+   ```
+   {
+       module: "MMM-network-signal",
+       position: "bottom_right",
+       config: {
+           // Configuration of the module goes here
+       }
+   }
+   ```
 
 ## Configuration Options
 
