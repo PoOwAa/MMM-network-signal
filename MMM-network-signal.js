@@ -28,11 +28,6 @@ Module.register("MMM-network-signal", {
 		};
 	},
 
-    // Custom CSS for wifi logo
-    getStyles: function() {
-        return ["MMM-network-signal.css"];
-    },
-
     start: function() {
         Log.info("Starting module: " + this.name);
         const self = this;
@@ -46,24 +41,21 @@ Module.register("MMM-network-signal", {
     },
 
     getDom: function() {
-        const wrapper = document.createElement("div");
-        wrapper.setAttribute("id", "MMM-network-signal-wifi-signal");
-        wrapper.className = "small";
-
-        const signalClasses = this.getSignalClasses();
-        const wifiSign = document.createElement("div");
+        const content = document.createElement("div");
+        content.style = "display: flex;flex-direction: row;justify-content: space-between; align-items: center";
+        const wifiSign = document.createElement("img");
+        wifiSign.style = "transform:scale(0.45)";
         if (this.config.showMessage)
         {
-            wrapper.style = "display: flex; flex-direction: row"
             var connStatus = document.createElement("p");
-            connStatus.style = "text-align: left";
+            connStatus.style = "text-align:center;font-size:0.65em";
         }
 
         // Changing icon
         switch (true) {
             // Fast ping, strong signal
             case this.ping < this.config.thresholds.strong:
-                wifiSign.className = signalClasses.strong;
+                wifiSign.src = this.file("icons/3.png");
                 if (this.config.showMessage)
                 {
                     connStatus.innerHTML = this.translate("excellent")
@@ -71,7 +63,7 @@ Module.register("MMM-network-signal", {
                 break;
             // Medium ping, medium signal
             case this.ping < this.config.thresholds.medium:
-                wifiSign.className = signalClasses.medium;
+                wifiSign.src = this.file("icons/2.png");
                 if (this.config.showMessage)
                 {
                     connStatus.innerHTML = this.translate("good")
@@ -79,7 +71,7 @@ Module.register("MMM-network-signal", {
                 break;
             // Slow ping, weak signal
             case this.ping < this.config.thresholds.weak:
-                wifiSign.className = signalClasses.weak;
+                wifiSign.src = this.file("icons/1.png");
                 if (this.config.showMessage)
                 {
                     connStatus.innerHTML = this.translate("normal")
@@ -87,7 +79,7 @@ Module.register("MMM-network-signal", {
                 break;
             // Ultraslow ping, better if "no signal"
             case this.ping > this.config.thresholds.weak:
-                wifiSign.className = signalClasses.none;
+                wifiSign.src = this.file("icons/0.png");
                 if (this.config.showMessage)
                 {
                     connStatus.innerHTML = this.translate("bad")
@@ -95,16 +87,16 @@ Module.register("MMM-network-signal", {
                 break;
             // No actual ping, maybe just searching for signal
             default:
-                wifiSign.className = signalClasses.loading;
+                wifiSign.src = this.file("icons/loading.gif");
                 break;
         }
 
-        wrapper.appendChild(wifiSign);
         if (this.config.showMessage)
         {
-            wrapper.appendChild(connStatus);
+            content.appendChild(connStatus);
         }
-        return wrapper;
+        content.appendChild(wifiSign);
+        return content;
     },
 
     // Send socket notification, to start pinging the server
@@ -121,16 +113,5 @@ Module.register("MMM-network-signal", {
             this.ping = payload;
             this.updateDom(this.config.animationSpeed);
         }
-    },
-
-    // Pre-defined classes for wifi sign
-    getSignalClasses: function() {
-        return {
-            none: "MMM-network-signal-wifi none", // Empty wifi logo
-            weak: "MMM-network-signal-wifi weak", // 1 bar wifi logo
-            medium: "MMM-network-signal-wifi medium", // 2 bars wifi logo
-            strong: "MMM-network-signal-wifi", // 3 bars wifi logo
-            loading: "MMM-network-signal-wifi loading", // wifi logo with loading animation
-        };
     },
 });
