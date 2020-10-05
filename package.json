@@ -1,6 +1,6 @@
 {
   "name": "mmm-network-signal",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "MagicMirror2 solid network status",
   "main": "MMM-network-signal.js",
   "scripts": {
