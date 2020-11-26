@@ -23,8 +23,10 @@ Module.register("MMM-network-signal", {
     },
     getTranslations: function() {
 		return {
+			de: "translations/de.json",
 			en: "translations/en.json",
-      		es: "translations/es.json",
+      			es: "translations/es.json",
+			fr: "translations/fr.json"
 		};
 	},
 
