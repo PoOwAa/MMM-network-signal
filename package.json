@@ -23,6 +23,6 @@
   },
   "homepage": "https://github.com/PoOwAa/MMM-network-signal#readme",
   "dependencies": {
-    "ping": "^0.4.0"
+    "ping": "^0.4.1"
   }
 }
