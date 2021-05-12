@@ -20,12 +20,14 @@ Module.register("MMM-network-signal", {
             medium: 150,
             weak: 500,
         },
+        flexDirection: 'row', // set to 'row' to display the row in left-to-right mode, 'row-reverse' to display the row in right-to-left mode
+        scale: 0.45 // scale for the icon, must be greater than 0
     },
     getTranslations: function() {
 		return {
 			de: "translations/de.json",
 			en: "translations/en.json",
-      			es: "translations/es.json",
+			es: "translations/es.json",
 			fr: "translations/fr.json"
 		};
 	},
@@ -44,9 +46,9 @@ Module.register("MMM-network-signal", {
 
     getDom: function() {
         const content = document.createElement("div");
-        content.style = "display: flex;flex-direction: row;justify-content: space-between; align-items: center";
+        content.style = `display: flex;flex-direction: ${this.config.flexDirection};justify-content: space-between; align-items: center`;
         const wifiSign = document.createElement("img");
-        wifiSign.style = "transform:scale(0.45)";
+        wifiSign.style = `transform:scale(${this.config.scale})`;
         if (this.config.showMessage)
         {
             var connStatus = document.createElement("p");
