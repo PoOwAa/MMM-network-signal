@@ -10,7 +10,7 @@ Display a solid wifi logo as network signal for MagicMirror<sup>2</sup>
 -   [NPM Ping](https://www.npmjs.com/package/ping)
 
 ## Installation
-Open up your terminal and past the following code into it.
+Open up your terminal and paste the following code into it.
 ```bash
 cd ~/MagicMirror/modules/
 git clone https://github.com/PoOwAa/MMM-network-signal.git
