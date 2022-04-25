@@ -10,12 +10,21 @@ Display a solid wifi logo as network signal for MagicMirror<sup>2</sup>
 -   [NPM Ping](https://www.npmjs.com/package/ping)
 
 ## Installation
+Open up your terminal and past the following code into it.
+```bash
+cd ~/MagicMirror/modules/
+git clone https://github.com/PoOwAa/MMM-network-signal.git
+cd MMM-network-signal
+npm i
+```
+## Confirigation
+- Now use your editor `nano` or `vim` to edit the following file
+```bash
+nano ~/MagicMirror/config/config.js # change nano to your favorite editor
+```
+- Paste the following code into modules section
 
-1. Clone this repo into `~/MagicMirror/modules` directory.
-2. Install dependencies `npm i`
-3. Configure your `~/MagicMirror/config/config.js`:
-
-   ```
+```js
    {
        module: "MMM-network-signal",
        position: "bottom_right",
