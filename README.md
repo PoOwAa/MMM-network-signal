@@ -17,7 +17,7 @@ git clone https://github.com/PoOwAa/MMM-network-signal.git
 cd MMM-network-signal
 npm i
 ```
-## Confirigation
+## Configuration
 - Now use your editor `nano` or `vim` to edit the following file
 ```bash
 nano ~/MagicMirror/config/config.js # change nano to your favorite editor
